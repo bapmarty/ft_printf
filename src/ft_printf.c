@@ -76,6 +76,8 @@ static void	parse(t_printf *f)
 		if (f->fmt[i] == '%')
 		{
 			i = parse_parameters(f, i + 1);
+			if (f->s == 'c' || f->s == 's')
+				print_cs(f);
 		}
 		else
 		{

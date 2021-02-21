@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_params.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 20:39:48 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/20 23:24:47 by bapmarti         ###   ########.fr       */
+/*   Created: 2021/02/20 21:52:36 by bapmarti          #+#    #+#             */
+/*   Updated: 2021/02/20 22:37:29 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-
-typedef struct		s_printf {
-	char		*fmt;
-	va_list		ap;
-	va_list		copy;
-	int			len;
-	int			m;
-	int			w;
-	int			p;
-	int			l;
-	char		s;
-}					t_printf;
-
-int					ft_printf(const char *fmt, ...);
-
-void				init_params(t_printf *f);
-void				print_space(t_printf *f, int space);
-void				print_cs(t_printf *f);
-
-#endif
+void	print_space(t_printf *f, int space)
+{
+	while (space-- > 0)
+	{
+		ft_putchar(' ');
+		f->len++;
+	}
+}

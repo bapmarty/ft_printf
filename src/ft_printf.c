@@ -11,6 +11,18 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+static void	parse(t_printf *f)
+{
+	int	i;
+
+	f->len = 0;
+	i = 0;
+	while (f->fmt[i])
+	{
+		init_params(f);
+	}
+}
+
 int	ft_printf(const char *fmt, ...)
 {
 	t_printf	f;

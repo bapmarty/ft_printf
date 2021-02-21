@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   init_params.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 20:39:48 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/20 23:24:47 by bapmarti         ###   ########.fr       */
+/*   Created: 2021/02/20 21:04:48 by bapmarti          #+#    #+#             */
+/*   Updated: 2021/02/21 02:19:09 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-
-typedef struct		s_printf {
-	char		*fmt;
-	va_list		ap;
-	va_list		copy;
-	int			len;
-	int			m;
-	int			w;
-	int			p;
-	int			l;
-	char		s;
-}					t_printf;
-
-int					ft_printf(const char *fmt, ...);
-
-void				init_params(t_printf *f);
-
-#endif
+void	init_params(t_printf *f)
+{
+	f->m = 0;
+	f->w = -1;
+	f->l = -1;
+	f->p = 0;
+	f->s = 0;
+}

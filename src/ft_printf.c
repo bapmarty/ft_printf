@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/21 02:56:09 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/21 03:10:39 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static void	parse(t_printf *f)
 			i = parse_parameters(f, i + 1);
 			if (f->s == 'c' || f->s == 's')
 				print_cs(f);
+			else if (f->s == '%')
+				print_percent(f);
 		}
 		else
 		{

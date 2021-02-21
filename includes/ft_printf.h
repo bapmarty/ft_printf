@@ -32,6 +32,7 @@ int					ft_printf(const char *fmt, ...);
 
 void				init_params(t_printf *f);
 void				print_space(t_printf *f, int space);
+void				print_percent(t_printf *f);
 void				print_cs(t_printf *f);
 
 #endif

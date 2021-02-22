@@ -4,10 +4,8 @@ LIBFT		=	libft
 
 SRC_FOLDER	=	./src/
 SRC_FILES	=	ft_printf.c					\
-				init_params.c				\
-				specifier/print_percent.c 	\
-				specifier/print_params.c	\
-				specifier/print_cs.c 		\
+				init_flags.c				\
+				select_specifier.c			\
 
 
 OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))

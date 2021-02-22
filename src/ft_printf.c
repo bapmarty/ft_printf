@@ -72,14 +72,11 @@ static void	parse(t_printf *f)
 	i = 0;
 	while (f->fmt[i])
 	{
-		init_params(f);
+		init_flags(f);
 		if (f->fmt[i] == '%')
 		{
 			i = parse_parameters(f, i + 1);
-			if (f->s == 'c' || f->s == 's')
-				print_cs(f);
-			else if (f->s == '%')
-				print_percent(f);
+			select_specifier(f);
 		}
 		else
 		{

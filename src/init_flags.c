@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_params.c                                     :+:      :+:    :+:   */
+/*   init_flags.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 21:52:36 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/20 22:37:29 by bapmarti         ###   ########.fr       */
+/*   Created: 2021/02/20 21:04:48 by bapmarti          #+#    #+#             */
+/*   Updated: 2021/02/22 15:49:40 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_space(t_printf *f, int space)
+void	init_flags(t_printf *f)
 {
-	while (space-- > 0)
-	{
-		ft_putchar(' ');
-		f->len++;
-	}
+	f->m = 0;
+	f->w = 0;
+	f->l = -1;
+	f->p = 0;
+	f->s = 0;
 }

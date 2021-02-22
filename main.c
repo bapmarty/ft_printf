@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:53 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/21 03:16:56 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:38:51 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,24 @@ static void		print_string_test()
 	printf("[result ft_printf: %d]\n\n", ft_printf("[15]\t[%%3s]\tft_printf: Hello %3s$\n", "asdf"));
 	printf("[result printf: %d]\n", printf("[16]\t[%%*s]\t   printf: Hello %*s$\n", 15, "asdf"));
 	printf("[result ft_printf: %d]\n\n", ft_printf("[16]\t[%%*s]\tft_printf: Hello %*s$\n", 15, "asdf"));
+	printf("[result printf: %d]\n", printf("[17]\t[%%s]\t   printf: Hello %s$\n", NULL));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[17]\t[%%s]\tft_printf: Hello %s$\n", NULL));
+	printf("[result printf: %d]\n", printf("[17]\t[%%*s]\t   printf: Hello %*s$\n", 15, NULL));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[17]\t[%%*s]\tft_printf: Hello %*s$\n", 15, NULL));
+	printf("[result printf: %d]\n", printf("[18]\t[%%.s]\t   printf: Hello %.s$\n", NULL));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[18]\t[%%.s]\tft_printf: Hello %.s$\n", NULL));
+	printf("[result printf: %d]\n", printf("[19]\t[%%7.5s]\t   printf: Hello %7.5s !$\n", "bapmarti"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[19]\t[%%7.5s]\tft_printf: Hello %7.5s !$\n", "bapmarti"));
+	printf("[result printf: %d]\n", printf("[19]\t[%%-7.5s]\t   printf: Hello %-7.5s !$\n", "bapmarti"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[19]\t[%%-7.5s]\tft_printf: Hello %-7.5s !$\n", "bapmarti"));
+	printf("[result printf: %d]\n", printf("[20]\t[%%.s]\t   printf: Hello %.s$\n", "world"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[20]\t[%%.s]\tft_printf: Hello %.s$\n", "world"));
+	printf("[result printf: %d]\n", printf("[21]\t[%%7.3s%%7.7s]\t   printf: %7.3s%7.7s$\n", "hello", "world"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[21]\t[%%7.3s%%7.7s]\tft_printf: %7.3s%7.7s$\n", "hello", "world"));
+	printf("[result printf: %d]\n", printf("[22]\t[%%*s]\t   printf: hello %*s$\n", -50, "world"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[22]\t[%%*s]\tft_printf: hello %*s$\n", -50, "world"));
+	printf("[result printf: %d]\n", printf("[23]\t[%%*s]\t   printf: hello %*s$\n", -2, "world"));
+	printf("[result ft_printf: %d]\n\n", ft_printf("[23]\t[%%*s]\tft_printf: hello %*s$\n", -2, "world"));
 }
 
 static void		print_percent_test()

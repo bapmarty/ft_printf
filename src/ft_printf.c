@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/21 03:10:39 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:49:20 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,23 @@ static int	parse_width_length(t_printf *f, int i)
 static int	parse_wildcard(t_printf *f, int i)
 {
 	if (f->p == 1)
+	{
 		f->l = va_arg(f->ap, int);
+		if (f->l < 0)
+		{
+			f->m = 1;
+			f->l = -f->l;
+		}
+	}
 	else
+	{
 		f->w = va_arg(f->ap, int);
+		if (f->w < 0)
+		{
+			f->m = 1;
+			f->w = -f->w;
+		}
+	}
 	i++;
 	return (i);
 }
@@ -58,6 +72,8 @@ static int	parse_parameters(t_printf *f, int i)
 			i = parse_width_length(f, i);
 		else if (f->fmt[i] == '*')
 			i = parse_wildcard(f, i);
+		else
+			f->l = 0;
 	}
 	f->s = f->fmt[i];
 	return (i);

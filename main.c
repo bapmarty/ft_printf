@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:53 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:51 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:34:11 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,36 @@ static void		print_char_test()
 	ft_printf("[FT_PRINTF RESULT CHAR TEST]\n");
 	printf("[result printf: %d]\n", printf("[1]\t[%%c]\t\t   printf: Hell%c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[1]\t[%%c]\t\tft_printf: Hell%c$\n", 'o'));
-	printf("[result printf: %d]\n", printf("[2]\t[%%5c]\t\t   printf: Hell%5c$\n", 'o'));
-	printf("[result ft_printf: %d]\n", ft_printf("[2]\t[%%5c]\t\tft_printf: Hell%5c$\n", 'o'));
-	printf("[result printf: %d]\n", printf("[3]\t[%%-5c]\t\t   printf: Hell%-5c$\n", 'o'));
-	printf("[result ft_printf: %d]\n", ft_printf("[3]\t[%%-5c]\t\tft_printf: Hell%-5c$\n", 'o'));
-	printf("[result printf: %d]\n", printf("[4]\t[%%c%%c%%c%%c%%c]\t   printf: %c%c%c%c%c$\n", 'H', 'e', 'l', 'l', 'o'));
-	printf("[result ft_printf: %d]\n", ft_printf("[4]\t[%%c%%c%%c%%c%%c]\tft_printf: %c%c%c%c%c$\n", 'H', 'e', 'l', 'l', 'o'));
-	printf("[result printf: %d]\n", printf("[5]\t[%%c%%c%%c%%c%%5c]\t   printf: %c%c%c%c%5c$\n", 'H', 'e', 'l', 'l', 'o'));
-	printf("[result ft_printf: %d]\n", ft_printf("[5]\t[%%c%%c%%c%%c%%5c]\tft_printf: %c%c%c%c%5c$\n", 'H', 'e', 'l', 'l', 'o'));
+	
+	printf("[result printf: %d]\n", printf("[2]\t[%%.c]\t\t   printf: Hell%.c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[2]\t[%%.c]\t\tft_printf: Hell%.c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[3]\t[%%-c]\t\t   printf: Hell%-c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[3]\t[%%-c]\t\tft_printf: Hell%-c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[4]\t[%%12c]\t\t   printf: Hell%12c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[4]\t[%%12c]\t\tft_printf: Hell%12c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[5]\t[%%-12c]\t\t   printf: Hell%-12c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[5]\t[%%-12c]\t\tft_printf: Hell%-12c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[7]\t[%%-.c]\t\t   printf: Hell%-.c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[7]\t[%%-.c]\t\tft_printf: Hell%-.c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[8]\t[%%*c]\t\t   printf: Hell%*c$\n", 15, 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[8]\t[%%*c]\t\tft_printf: Hell%*c$\n", 15, 'o'));
+	
+	printf("[result printf: %d]\n", printf("[9]\t[%%*c]\t\t   printf: Hell%*c$\n", -15, 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[9]\t[%%*c]\t\tft_printf: Hell%*c$\n", -15, 'o'));
+	
+	printf("[result printf: %d]\n", printf("[10]\t[%%*c]\t\t   printf: Hell%*c$\n", -15, 0));
+	printf("[result ft_printf: %d]\n", ft_printf("[10]\t[%%*c]\t\tft_printf: Hell%*c$\n", -15, 0));
+	
+	printf("[result printf: %d]\n", printf("[11]\t[%%1.c]\t\t   printf: Hell%1.c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%1.c]\t\tft_printf: Hell%1.c$\n", 'o'));
+	
+	printf("[result printf: %d]\n", printf("[12]\t[%%5.c]\t\t   printf: Hell%5.c$\n", 'o'));
+	printf("[result ft_printf: %d]\n", ft_printf("[12]\t[%%5.c]\t\tft_printf: Hell%5.c$\n", 'o'));
 }
 
 static void		print_string_test()

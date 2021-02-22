@@ -33,6 +33,7 @@ int					print_width(int width, int arg, int zero);
 
 void				init_flags(t_printf *f);
 void				select_specifier(t_printf *f);
+void				print_char(t_printf *f, unsigned char c);
 void				print_string(t_printf *f, char *str);
 
 #endif

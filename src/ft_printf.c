@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 17:51:51 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 18:01:11 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ static int	parse_parameters(t_printf *f, int i)
 	f->s = f->fmt[i];
 	return (i);
 }
-
 
 static void	parse(t_printf *f)
 {

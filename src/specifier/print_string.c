@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:45:14 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 16:47:26 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 18:06:24 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_str(char *str, t_printf *f)
 {
-	int len;
+	int	len;
 
 	len = f->l;
 	if (f->l >= 0)
@@ -35,9 +35,9 @@ static void	print_str(char *str, t_printf *f)
 			f->len++;
 		}
 	}
-} 
+}
 
-void		print_string(t_printf *f, char *str)
+void	print_string(t_printf *f, char *str)
 {
 	int		len_s;
 
@@ -45,13 +45,13 @@ void		print_string(t_printf *f, char *str)
 		str = "(null)";
 	len_s = ft_strlen(str);
 	if ((f->l >= 0 && f->l > len_s))
-		f->l = len_s;	
+		f->l = len_s;
 	if (f->m == 1)
 		print_str(str, f);
 	if (f->l >= 0)
-		f->len+=print_width(f->w, f->l, 0);
+		f->len += print_width(f->w, f->l, 0);
 	else
-		f->len+=print_width(f->w, len_s, 0);
+		f->len += print_width(f->w, len_s, 0);
 	if (f->m == 0)
 		print_str(str, f);
 }

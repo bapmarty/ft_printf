@@ -49,9 +49,8 @@ fclean: clean
 re:		fclean all
 
 norm:
-	#@~/.norminette/norminette.rb ./libft/*.c
 	@norminette -d src
-	@norminette -d include
+	@norminette -d includes
 
 test:
 	@clear

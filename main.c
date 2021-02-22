@@ -128,6 +128,13 @@ static void		print_percent_test()
 	printf("[result ft_printf: %d]\n", ft_printf("[9]\t[%%%%%%%%%%%%%%%%%%%%]\t|ft_printf: 100%%%%%%%%%%\n"));
 	printf("[result printf: %d]\n", printf("[10]\t[%%%%%%%%%%%%%%%%%%9%%]\t|   printf: 100%%%%%%%%%9%\n"));
 	printf("[result ft_printf: %d]\n", ft_printf("[10]\t[%%%%%%%%%%%%%%%%%%9%%]\t|ft_printf: 100%%%%%%%%%9%\n"));
+	
+	printf("[result printf: %d]\n", printf("[11]\t[%%05%%]\t\t|   printf: 100%05%\n"));
+	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%05%\n"));
+	printf("[result printf: %d]\n", printf("[11]\t[%%05%%]\t\t|   printf: 100%05c\n", 'c'));
+	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%05c\n", 'c'));
+	printf("[result printf: %d]\n", printf("[11]\t[%%05%%]\t\t|   printf: 100%-05c\n", 'c'));
+	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%-05c\n", 'c'));
 }
 int		main()
 {

@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:44:08 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 17:29:11 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:40:14 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	print_char(t_printf *f, unsigned char c)
 	if (f->m == 1)
 		ft_putchar(c);
 	if (f->l >= 0)
-		f->len+=print_width(f->w, 1, 0);
+		f->len+=print_width(f->w, 1, f->zero);
 	else
-		f->len+=print_width(f->w, 1, 0);
+		f->len+=print_width(f->w, 1, f->zero);
 	if (f->m == 0)
 		ft_putchar(c);
 	f->len++;

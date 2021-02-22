@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 16:49:20 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:51:51 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static int	parse_width_length(t_printf *f, int i)
 	int	wl;
 
 	wl = 0;
+	if (f->fmt[i] == '0' && f->m == 0)
+	{
+		f->zero = 1;
+		i++;
+	}
 	while (f->fmt[i] >= '0' && f->fmt[i] <= '9')
 	{
 		wl = wl * 10 + f->fmt[i] - '0';

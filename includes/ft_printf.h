@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:48 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 17:08:32 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:54:34 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct		s_printf {
 	char		*fmt;
 	va_list		ap;
 	va_list		copy;
+	int			zero;
 	int			len;
 	int			m;
 	int			w;

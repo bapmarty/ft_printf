@@ -8,7 +8,8 @@ SRC_FILES	=	ft_printf.c					\
 				select_specifier.c			\
 				specifier/print_char.c 		\
 				specifier/print_width.c		\
-				specifier/print_string.c 	
+				specifier/print_string.c 	\
+				specifier/print_integer.c
 
 
 OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))

@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:53 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 17:34:11 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/22 20:29:00 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,24 @@ static void		print_char_test()
 	ft_printf("[FT_PRINTF RESULT CHAR TEST]\n");
 	printf("[result printf: %d]\n", printf("[1]\t[%%c]\t\t   printf: Hell%c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[1]\t[%%c]\t\tft_printf: Hell%c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[2]\t[%%.c]\t\t   printf: Hell%.c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[2]\t[%%.c]\t\tft_printf: Hell%.c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[3]\t[%%-c]\t\t   printf: Hell%-c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[3]\t[%%-c]\t\tft_printf: Hell%-c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[4]\t[%%12c]\t\t   printf: Hell%12c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[4]\t[%%12c]\t\tft_printf: Hell%12c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[5]\t[%%-12c]\t\t   printf: Hell%-12c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[5]\t[%%-12c]\t\tft_printf: Hell%-12c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[7]\t[%%-.c]\t\t   printf: Hell%-.c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[7]\t[%%-.c]\t\tft_printf: Hell%-.c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[8]\t[%%*c]\t\t   printf: Hell%*c$\n", 15, 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[8]\t[%%*c]\t\tft_printf: Hell%*c$\n", 15, 'o'));
-	
 	printf("[result printf: %d]\n", printf("[9]\t[%%*c]\t\t   printf: Hell%*c$\n", -15, 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[9]\t[%%*c]\t\tft_printf: Hell%*c$\n", -15, 'o'));
-	
 	printf("[result printf: %d]\n", printf("[10]\t[%%*c]\t\t   printf: Hell%*c$\n", -15, 0));
 	printf("[result ft_printf: %d]\n", ft_printf("[10]\t[%%*c]\t\tft_printf: Hell%*c$\n", -15, 0));
-	
 	printf("[result printf: %d]\n", printf("[11]\t[%%1.c]\t\t   printf: Hell%1.c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%1.c]\t\tft_printf: Hell%1.c$\n", 'o'));
-	
 	printf("[result printf: %d]\n", printf("[12]\t[%%5.c]\t\t   printf: Hell%5.c$\n", 'o'));
 	printf("[result ft_printf: %d]\n", ft_printf("[12]\t[%%5.c]\t\tft_printf: Hell%5.c$\n", 'o'));
 }
@@ -133,9 +123,50 @@ static void		print_percent_test()
 	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%05%\n"));
 	printf("[result printf: %d]\n", printf("[11]\t[%%05%%]\t\t|   printf: 100%05c\n", 'c'));
 	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%05c\n", 'c'));
-	printf("[result printf: %d]\n", printf("[11]\t[%%05%%]\t\t|   printf: 100%-05c\n", 'c'));
-	printf("[result ft_printf: %d]\n", ft_printf("[11]\t[%%05%%]\t\t|ft_printf: 100%-05c\n", 'c'));
 }
+
+static void		print_integer_test()
+{
+	ft_printf("[FT_PRINTF RESULT INTEGER TEST]\n");
+	printf("[result printf: %d]\n", printf("[1]\t[%%i]\t\t|   printf: %i\n", 42));
+	printf("[result printf: %d]\n", printf("[2]\t[%%10i]\t\t|   printf: %10i\n", 42));
+	printf("[result printf: %d]\n", printf("[3]\t[%%.10i]\t\t|   printf: %.10i\n", 42));
+	printf("[result printf: %d]\n", printf("[4]\t[%%.i]\t\t|   printf: %.i\n", 42));
+	printf("[result printf: %d]\n", printf("[5]\t[%%-i]\t\t|   printf: %-i\n", 42));
+	printf("[result printf: %d]\n", printf("[6]\t[%%-10i]\t\t|   printf: %-10i\n", 42));
+	printf("[result printf: %d]\n", printf("[7]\t[%%-.10i]\t\t|   printf: %-.10i\n", 42));
+	printf("[result printf: %d]\n", printf("[8]\t[%%i]\t\t|   printf: %i\n", -42));
+	printf("[result printf: %d]\n", printf("[9]\t[%%.i]\t\t|   printf: %.i\n", -42));
+	printf("[result printf: %d]\n", printf("[10]\t[%%-i]\t\t|   printf: %-i\n", -42));
+	printf("[result printf: %d]\n", printf("[11]\t[%%10i]\t\t|   printf: %10i\n", -42));
+	printf("[result printf: %d]\n", printf("[12]\t[%%-10i]\t\t|   printf: %10i\n", -42));
+	printf("[result printf: %d]\n", printf("[13]\t[%%.10i]\t\t|   printf: %.10i\n", -42));
+	printf("[result printf: %d]\n", printf("[14]\t[%%10.10i]\t\t|   printf: %10.10i\n", 42));
+	printf("[result printf: %d]\n", printf("[15]\t[%%10.10i]\t\t|   printf: %10.10i\n", -42));
+	printf("[result printf: %d]\n", printf("[16]\t[%%-10.10i]\t\t|   printf: %-10.10i\n", 42));
+	printf("[result printf: %d]\n", printf("[17]\t[%%10.10i]\t\t|   printf: %10.10i\n", 42));
+	printf("[result printf: %d]\n", printf("[18]\t[%%*i]\t\t|   printf: %*i\n", 10, 42));
+	printf("[result printf: %d]\n", printf("[19]\t[%%*i]\t\t|   printf: %*i\n", -10, 42));
+	printf("[result printf: %d]\n", printf("[20]\t[%%.*i]\t\t|   printf: %.*i\n", 10, 42));
+	printf("[result printf: %d]\n", printf("[21]\t[%%.*i]\t\t|   printf: %.*i\n", -10, 42));
+	printf("[result printf: %d]\n", printf("[20]\t[%%-.*i]\t\t|   printf: %-.*i\n", 10, 42));
+	printf("[result printf: %d]\n\n\n", printf("[21]\t[%%-.*i]\t\t|   printf: %-.*i\n", -10, 42));
+	
+	printf("[result printf: %d]\n", printf("[1]\t[%%07i]\t\t|   printf: \"%07i\"\n", 42));
+	printf("[result printf: %d]\n", ft_printf("[1]\t[%%07i]\t\t|ft_printf: \"%07i\"\n", 42));
+		
+	printf("[result printf: %d]\n", printf("[2]\t[%%7i]\t\t|   printf: \"%7i\"\n", -42));
+	printf("[result printf: %d]\n", ft_printf("[2]\t[%%7i]\t\t|ft_printf: \"%7i\"\n", -42));
+		
+	printf("[result printf: %d]\n", printf("[3]\t[%%07i]\t\t|   printf: \"%07i\"\n", -42));
+	printf("[result printf: %d]\n", ft_printf("[3]\t[%%07i]\t\t|ft_printf: \"%07i\"\n", -42));
+	
+	printf("[result printf: %d]\n", printf("[4]\t[%%.7i]\t\t|   printf: \"%.7i\"\n", 42));
+	printf("[result printf: %d]\n", ft_printf("[4]\t[%%.7i]\t\t|ft_printf: \"%.7i\"\n", 42));
+	printf("[result printf: %d]\n", printf("[4]\t[%%.7i]\t\t|   printf: \"%.7i\"\n", -42));
+	printf("[result printf: %d]\n", ft_printf("[4]\t[%%.7i]\t\t|ft_printf: \"%.7i\"\n", -42));
+}
+
 int		main()
 {
 	char test = 'h';

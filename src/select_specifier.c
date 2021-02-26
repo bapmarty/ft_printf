@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:49:36 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 18:47:40 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/26 13:31:07 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	select_specifier(t_printf *f)
 	else if (f->s == '%')
 		print_char(f, '%');
 	else if (f->s == 'i' || f->s == 'd')
-		print_integer(f, ft_itoa(va_arg(f->ap, int)));
+		print_integer(f, va_arg(f->ap, int));
 }

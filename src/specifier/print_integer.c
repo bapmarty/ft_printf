@@ -6,98 +6,73 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 18:12:38 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/22 20:46:18 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:48:55 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_minus(char *number)
+static void	print_part_number(char *s_number, int number, t_printf *f)
 {
-	if (*number == '-')
-		return (1);
-	return (0);
-}
-
-static void	print_number(char *number, t_printf *f, int len_number, int minus)
-{
-	int len_copy;
-	(void)minus;
-	// START DEBUG
-	//printf("\n\n\n[DEBUG]\n");
-	//printf("[number] [%s]\n", number);
-	//printf("[len] %i\n", len);
-	//printf("[f->m] %d\n", f->m);
-	//printf("[f->w] %d\n", f->w);
-	//printf("[f->p] %d\n", f->p);
-	//printf("[f->l] %d\n", f->l);
-	//printf("[f->s] %c\n\n\n", f->s);
-	// END DEBUG
+	if (number < 0 && f->l >= 0)
+	{
+		ft_putchar('-');
+	}
 	if (f->l >= 0)
 	{
-		len_copy = f->l;
-		f->len += print_width(f->l, len_number, 1);
-		while (*number)
-		{
-			ft_putchar(*number);
-			number++;
-			f->len++;
-		}
+		f->len += print_width(f->l - 1, ft_strlen(s_number) - 1, 1);
 	}
-	else
-	{
-		while (*number)
-		{
-			ft_putchar(*number);
-			number++;
-			f->len++;
-		}
-	}
+	ft_putstr(s_number);
+	f->len += ft_strlen(s_number);
 }
 
-void	print_integer(t_printf *f, char *number)
+static void	print_number(char *s_number, int number, t_printf *f)
 {
-	int	len;
-	int	minus;
-
-	minus = check_minus(number);
-	len = ft_strlen(number);
-	if (f->w == 0 && (minus && f->l >= 0))
-	{
-		ft_putchar('-');
-		len--;
-		number++;
-		minus = 0;
-	}
-	//if (f->l >= 0 && f->l > len)
-	//{
-	//	f->l = len;
-	//}
 	if (f->m == 1)
 	{
-		print_number(number, f, len, minus);
+		print_part_number(s_number, number, f);
 	}
-	if ((f->l >= 0 && f->zero == 1) )
+	if (f->l >= 0 && (size_t)f->l < ft_strlen(s_number))
 	{
-		f->len += print_width(f->w, len, 1);
+		f->l = ft_strlen(s_number);
 	}
-	else if (f->l >= 0)
-		f->len += print_width(f->w, -(f->l - len), 0);
+	if (f->l >= 0)
+	{
+		f->w -= f->l;
+		f->len += print_width(f->w, 0, 0);
+	}
 	else
-		f->len += print_width(f->w, len, 0);
-	if (minus && f->l >= 0)
 	{
-		ft_putchar('-');
-		len--;
-		number++;
+		f->len += print_width(f->w, ft_strlen(s_number), f->zero);
 	}
 	if (f->m == 0)
 	{
-		if (minus && f->m == 1)
+		print_part_number(s_number, number, f);
+	}
+}
+
+void	print_integer(t_printf *f, int number)
+{
+	char	*str_number;
+	int		saved_number;
+	
+	saved_number = number;
+	if (f->l == 0 && number == 0)
+	{
+		f->len += print_width(f->w, 0, 0);
+		return ;
+	}
+	if (number < 0 && (f->l >=0 || f->zero == 1))
+	{
+		if (f->zero && f->l == -1)
 		{
 			ft_putchar('-');
-			number++;
 		}
-		print_number(number, f, len, minus);
+		number *= -1;
+		f->w--;
+		f->len++;
 	}
+	str_number = ft_itoa(number);
+	print_number(str_number, saved_number, f);
+	free(str_number);
 }

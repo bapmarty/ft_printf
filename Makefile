@@ -3,13 +3,14 @@ NAME		=	libftprintf.a
 LIBFT		=	libft
 
 SRC_FOLDER	=	./src/
-SRC_FILES	=	ft_printf.c					\
-				init_flags.c				\
-				select_specifier.c			\
-				specifier/print_char.c 		\
-				specifier/print_width.c		\
-				specifier/print_string.c 	\
-				specifier/print_integer.c
+SRC_FILES	=	ft_printf.c						\
+				init_flags.c					\
+				select_specifier.c				\
+				specifier/print_char.c 			\
+				specifier/print_width.c			\
+				specifier/print_string.c 		\
+				specifier/print_integer.c		\
+				specifier/print_unsigned_int.c	\
 
 
 OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))

@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:48 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/26 13:30:52 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:55:19 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int					print_width(int width, int arg, int zero);
 
 void				init_flags(t_printf *f);
 void				select_specifier(t_printf *f);
+void				print_unsigned_integer(t_printf *f, unsigned int number);
 void				print_char(t_printf *f, unsigned char c);
 void				print_integer(t_printf *f, int number);
 void				print_string(t_printf *f, char *str);

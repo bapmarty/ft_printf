@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:49:36 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/26 13:31:07 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:55:10 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	select_specifier(t_printf *f)
 		print_char(f, '%');
 	else if (f->s == 'i' || f->s == 'd')
 		print_integer(f, va_arg(f->ap, int));
+	else if (f->s == 'u')
+		print_unsigned_integer(f, va_arg(f->ap, int));
 }

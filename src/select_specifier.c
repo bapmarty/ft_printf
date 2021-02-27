@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:49:36 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 14:23:59 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/27 15:44:16 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	select_specifier(t_printf *f)
 	else if (f->s == 'u')
 		print_uint(f, va_arg(f->ap, int));
 	else if (f->s == 'x')
-		print_hexa(f, (unsigned int)va_arg(f->ap, int), 1);
+		print_hexa(f, (unsigned int)va_arg(f->ap, int));
 	else if (f->s == 'X')
-		print_hexa(f, (unsigned int)va_arg(f->ap, int), 0);
+		print_hexa(f, (unsigned int)va_arg(f->ap, int));
+	else if (f->s == 'p')
+		print_pointer(f, va_arg(f->ap, unsigned long long));
 }

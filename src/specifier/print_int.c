@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 18:12:38 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 14:23:25 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/27 18:57:33 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static void	print_int_string(char *s_number, int number, t_printf *f)
 	}
 	else
 	{
-		f->len += print_width(f->w, ft_strlen(s_number), f->zero);
+		if (f->w < 0)
+			f->len += print_width(-f->w, ft_strlen(s_number), f->zero);
+		else
+			f->len += print_width(f->w, ft_strlen(s_number), f->zero);
 	}
 	if (f->m == 0)
 	{
@@ -57,7 +60,7 @@ void	print_int(t_printf *f, int number)
 	int		saved_number;
 	
 	saved_number = number;
-	if (f->l == 0 && number == 0)
+	if ((f->l == 0 && number == 0))
 	{
 		f->len += print_width(f->w, 0, 0);
 		return ;

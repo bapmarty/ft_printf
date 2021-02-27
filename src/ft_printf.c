@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 18:51:57 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/27 19:00:21 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	parse_wl(t_printf *f, int i)
 
 	wl = 0;
 	wl_minus = 0;
-	i = parse_zero(f, i);
+	if (f->p == 0)
+		i = parse_zero(f, i);
 	if (f->fmt[i] == '-')
 	{
 		wl_minus = 1;

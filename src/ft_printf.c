@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 16:41:46 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/27 18:51:57 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ static int	parse_wildcard(t_printf *f, int i)
 			f->m = 1;
 		}
 	}
-	i++;
-	return (i);
+	return (i + 1);
 }
 
 static int	parse_parameters(t_printf *f, int i)
@@ -85,10 +84,9 @@ static int	parse_parameters(t_printf *f, int i)
 			i = parse_wl(f, i);
 		}
 		else if (f->fmt[i] == '*')
-			i = parse_wl(f, i);
+			i = parse_wildcard(f, i);
 		else
 			f->l = 0;
-//		i++;
 	}
 	f->s = f->fmt[i];
 	return (i);

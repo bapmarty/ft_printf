@@ -6,20 +6,23 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/26 14:44:54 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/27 16:41:46 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	parse_width_length(t_printf *f, int i)
+static int	parse_wl(t_printf *f, int i)
 {
-	int	wl;
+	int wl;
+	int wl_minus;
 
 	wl = 0;
-	if (f->fmt[i] == '0' && f->m == 0)
+	wl_minus = 0;
+	i = parse_zero(f, i);
+	if (f->fmt[i] == '-')
 	{
-		f->zero = 1;
+		wl_minus = 1;
 		i++;
 	}
 	while (f->fmt[i] >= '0' && f->fmt[i] <= '9')
@@ -27,6 +30,8 @@ static int	parse_width_length(t_printf *f, int i)
 		wl = wl * 10 + f->fmt[i] - '0';
 		i++;
 	}
+	if (wl_minus)
+		wl = -wl;
 	if (f->p == 1)
 		f->l = wl;
 	else
@@ -42,7 +47,6 @@ static int	parse_wildcard(t_printf *f, int i)
 		if (f->l < 0)
 		{
 			f->m = 1;
-			//f->l = -f->l;
 		}
 	}
 	else
@@ -51,7 +55,6 @@ static int	parse_wildcard(t_printf *f, int i)
 		if (f->w < 0)
 		{
 			f->m = 1;
-			//f->w = -f->w;
 		}
 	}
 	i++;
@@ -63,33 +66,37 @@ static int	parse_parameters(t_printf *f, int i)
 	if (f->fmt[i] == '-')
 	{
 		f->m = 1;
-		i++;
+		f->fmt++;
 	}
-	if (f->fmt[i] >= '0' && f->fmt[i] <= '9')
-		i = parse_width_length(f, i);
+	if ((f->fmt[i] >= '0'  && f->fmt[i] <= '9') || f->fmt[i] == '-')
+	{
+		i = parse_wl(f, i);
+	}
 	else if (f->fmt[i] == '*')
+	{
 		i = parse_wildcard(f, i);
+	}
 	if (f->fmt[i] == '.')
 	{
 		f->p = 1;
 		i++;
-		if (f->fmt[i] >= '0' && f->fmt[i] <= '9')
-			i = parse_width_length(f, i);
+		if ((f->fmt[i] >= '0'  && f->fmt[i] <= '9') || f->fmt[i] == '-')
+		{
+			i = parse_wl(f, i);
+		}
 		else if (f->fmt[i] == '*')
-			i = parse_wildcard(f, i);
+			i = parse_wl(f, i);
 		else
 			f->l = 0;
+//		i++;
 	}
 	f->s = f->fmt[i];
 	return (i);
 }
 
-static void	parse(t_printf *f)
+static void	parse(t_printf *f, int i)
 {
-	int	i;
-
 	f->len = 0;
-	i = 0;
 	while (f->fmt[i])
 	{
 		init_flags(f);
@@ -110,11 +117,13 @@ static void	parse(t_printf *f)
 int	ft_printf(const char *fmt, ...)
 {
 	t_printf	f;
+	int			i;
 
+	i = 0;
 	f.fmt = (char *)fmt;
 	va_start(f.ap, fmt);
 	va_copy(f.copy, f.ap);
-	parse(&f);
+	parse(&f, i);
 	va_end(f.ap);
 	return (f.len);
 }

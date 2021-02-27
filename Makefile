@@ -5,13 +5,15 @@ LIBFT		=	libft
 SRC_FOLDER	=	./src/
 SRC_FILES	=	ft_printf.c						\
 				init_flags.c					\
+				parse_zero.c					\
 				select_specifier.c				\
+				specifier/print_int.c			\
 				specifier/print_uint.c			\
 				specifier/print_hexa.c			\
 				specifier/print_char.c 			\
 				specifier/print_width.c			\
 				specifier/print_string.c 		\
-				specifier/print_int.c			\
+				specifier/print_pointer.c		\
 
 
 OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))

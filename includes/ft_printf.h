@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:39:48 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 19:59:29 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 20:35:02 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_printf {
 int					ft_printf(const char *fmt, ...);
 int					print_width(int width, int arg, int zero);
 int					parse_zero(t_printf *f, int i);
+int					parse_wl(t_printf *f, int i);
 
 void				init_flags(t_printf *f);
 void				select_specifier(t_printf *f);

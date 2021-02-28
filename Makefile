@@ -6,6 +6,7 @@ SRC_FOLDER	=	./src/
 SRC_FILES	=	ft_printf.c						\
 				init_flags.c					\
 				parse_zero.c					\
+				parse_wl.c						\
 				select_specifier.c				\
 				specifier/print_int.c			\
 				specifier/print_uint.c			\

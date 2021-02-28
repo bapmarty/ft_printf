@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:59:12 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 15:36:40 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 20:42:01 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ static void	print_hexa_string(char *s_hexa, unsigned int hexa, t_printf *f)
 void	print_hexa(t_printf *f, unsigned int hexa)
 {
 	char	*str_hexa;
-	
+
 	if (f->l == 0 && hexa == 0)
 	{
 		f->len += print_width(f->w, 0, 0);
 		return ;
 	}
-	if (hexa < 0 && (f->l >=0 || f->zero == 1))
+	if (hexa < 0 && (f->l >= 0 || f->zero == 1))
 	{
 		if (f->zero && f->l == -1)
 		{

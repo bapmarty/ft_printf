@@ -6,75 +6,43 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:26:48 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 20:35:57 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	parse_wl(t_printf *f, int i, int wl_minus)
-{
-	int wl;
-
-	wl = 0;
-	while (f->fmt[i] >= '0' && f->fmt[i] <= '9')
-	{
-		wl = wl * 10 + f->fmt[i] - '0';
-		i++;
-	}
-	if (wl_minus)
-		wl = -wl;
-	if (f->p == 1)
-		f->l = wl;
-	else
-		f->w = wl;
-	return (i);
-}
-
 static int	parse_wildcard(t_printf *f, int i)
 {
 	if (f->p == 1)
-	{
 		f->l = va_arg(f->ap, int);
-	}
 	else
 	{
 		f->w = va_arg(f->ap, int);
 		if (f->w < 0)
-		{
 			f->m = 1;
-		}
 	}
 	return (i + 1);
 }
 
 static int	parse_parameters(t_printf *f, int i)
 {
-	int wl_minus;
-
-	wl_minus = 0;
 	while (f->fmt[i] == '-')
 	{
 		f->m = 1;
 		i++;
 	}
 	i = parse_zero(f, i);
-	if ((f->fmt[i] >= '0'  && f->fmt[i] <= '9'))
-	{
-		i = parse_wl(f, i, wl_minus);
-	}
+	if ((f->fmt[i] >= '0' && f->fmt[i] <= '9'))
+		i = parse_wl(f, i);
 	else if (f->fmt[i] == '*')
-	{
 		i = parse_wildcard(f, i);
-	}
 	if (f->fmt[i] == '.')
 	{
 		f->p = 1;
 		i++;
-		if ((f->fmt[i] >= '0'  && f->fmt[i] <= '9'))
-		{
-			i = parse_wl(f, i, wl_minus);
-		}
+		if ((f->fmt[i] >= '0' && f->fmt[i] <= '9'))
+			i = parse_wl(f, i);
 		else if (f->fmt[i] == '*')
 			i = parse_wildcard(f, i);
 		else

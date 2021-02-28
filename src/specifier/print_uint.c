@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:54:16 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 17:54:55 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 20:37:26 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ static void	print_part_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 static void	print_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 {
 	if (f->m == 1)
-	{
 		print_part_uint_string(s_uint, uint, f);
-	}
 	if (f->l >= 0 && (size_t)f->l < ft_strlen(s_uint))
-	{
 		f->l = ft_strlen(s_uint);
-	}
 	if (f->l >= 0)
 	{
 		if (f->w < 0)
@@ -50,9 +46,7 @@ static void	print_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 		f->len += print_width(f->w, ft_strlen(s_uint), f->zero);
 	}
 	if (f->m == 0)
-	{
 		print_part_uint_string(s_uint, uint, f);
-	}
 }
 
 void	print_uint(t_printf *f, unsigned int uint)

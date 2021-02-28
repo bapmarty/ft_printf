@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:27:43 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 15:41:20 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:25:59 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	print_pointer(t_printf *f, unsigned long long pointer)
 		f->l = ft_strlen(s_pointer);
 	if (f->m == 1)
 		print_part_pointer_string(s_pointer, f);
-	f->len += print_width(f->w, ft_strlen(s_pointer) + 2, 0);
+	if (f->w < 0)
+		f->len += print_width(-f->w, ft_strlen(s_pointer) + 2, 0);
+	else
+		f->len += print_width(f->w, ft_strlen(s_pointer) + 2, 0);
 	if (f->m == 0)
 		print_part_pointer_string(s_pointer, f);
 	free(s_pointer);

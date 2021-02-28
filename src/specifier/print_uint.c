@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:54:16 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 19:01:11 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:54:55 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,15 @@ static void	print_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 	}
 	if (f->l >= 0)
 	{
+		if (f->w < 0)
+			f->w = -f->w;
 		f->w -= f->l;
 		f->len += print_width(f->w, 0, 0);
 	}
 	else
 	{
+		if (f->w < 0)
+			f->w = -f->w;
 		f->len += print_width(f->w, ft_strlen(s_uint), f->zero);
 	}
 	if (f->m == 0)

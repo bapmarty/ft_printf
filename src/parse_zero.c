@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:04:00 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/27 16:41:05 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 19:57:27 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	parse_zero(t_printf *f, int i)
 {
-	if (f->fmt[i] == '0' && f->m == 0)
+	while (f->fmt[i] == '0' && f->m == 0)
 	{
 		f->zero = 1;
 		i++;

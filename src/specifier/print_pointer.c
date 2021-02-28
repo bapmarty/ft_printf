@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:27:43 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 15:25:59 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 19:53:54 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ void	print_pointer(t_printf *f, unsigned long long pointer)
 	
 	if (f->l == 0 && pointer == 0)
 	{
-		ft_putstr("0x");
-		f->len += print_width(f->w, 0, f->zero) + 2;
+		if (f->m == 1)
+			ft_putstr("0x");
+		f->len += print_width(f->w, 2, f->zero) + 2;
+		if (f->m == 0)
+			ft_putstr("0x");
 		return ;
 	}
 	s_pointer = ft_ulltoa_base(pointer, 16);
@@ -59,9 +62,8 @@ void	print_pointer(t_printf *f, unsigned long long pointer)
 	if (f->m == 1)
 		print_part_pointer_string(s_pointer, f);
 	if (f->w < 0)
-		f->len += print_width(-f->w, ft_strlen(s_pointer) + 2, 0);
-	else
-		f->len += print_width(f->w, ft_strlen(s_pointer) + 2, 0);
+		f->w = -f->w;
+	f->len += print_width(f->w, ft_strlen(s_pointer) + 2, 0);
 	if (f->m == 0)
 		print_part_pointer_string(s_pointer, f);
 	free(s_pointer);

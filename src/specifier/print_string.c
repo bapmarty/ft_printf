@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:45:14 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 15:20:46 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:37:18 by bapmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,14 @@ void	print_string(t_printf *f, char *str)
 	if (f->l >= 0)
 	{
 		if (f->w < 0)
-			f->len += print_width(-f->w, f->l, 0);
-		else
-			f->len += print_width(f->w, f->l, 0);
+			f->w = -f->w;
+		f->len += print_width(f->w, f->l, 0);
 	}
 	else
 	{
 		if (f->w < 0)
-			f->len += print_width(-f->w, ft_strlen(str), f->zero);
-		else
-			f->len += print_width(f->w, ft_strlen(str), f->zero);
+			f->w = -f->w;
+		f->len += print_width(f->w, ft_strlen(str), f->zero);
 	}
 	if (f->m == 0)
 		print_str(str, f);

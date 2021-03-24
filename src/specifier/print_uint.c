@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:54:16 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/03/24 16:49:21 by baptistem        ###   ########.fr       */
+/*   Updated: 2021/03/24 18:19:01 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_part_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 {
-	if (uint < 0 && f->l >= 0)
+	if ((long int)uint < 0 && f->l >= 0)
 	{
 		ft_putchar('-');
 	}

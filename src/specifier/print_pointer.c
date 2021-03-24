@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:27:43 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:40:54 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:48:58 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	print_null_pointer(t_printf *f)
 		ft_putstr("0x");
 }
 
-void	print_pointer(t_printf *f, unsigned long long pointer)
+void		print_pointer(t_printf *f, unsigned long long pointer)
 {
 	char	*s_pointer;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 18:12:38 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:42:53 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:48:48 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	print_int_string(char *s_number, int number, t_printf *f)
 		print_part_int_string(s_number, number, f);
 }
 
-void	print_int(t_printf *f, int number)
+void		print_int(t_printf *f, int number)
 {
 	char	*str_number;
 	int		saved_number;

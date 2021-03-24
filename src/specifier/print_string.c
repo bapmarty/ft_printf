@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 13:45:14 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 15:37:18 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:49:11 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	print_str(char *str, t_printf *f)
 	}
 }
 
-void	print_string(t_printf *f, char *str)
+void		print_string(t_printf *f, char *str)
 {
 	int		len_s;
 

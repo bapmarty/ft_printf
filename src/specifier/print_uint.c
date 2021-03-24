@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:54:16 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:37:26 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:49:21 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	print_uint_string(char *s_uint, unsigned int uint, t_printf *f)
 		print_part_uint_string(s_uint, uint, f);
 }
 
-void	print_uint(t_printf *f, unsigned int uint)
+void		print_uint(t_printf *f, unsigned int uint)
 {
 	char	*str_uint;
 

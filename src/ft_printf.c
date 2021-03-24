@@ -6,13 +6,13 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 20:33:19 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:35:57 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:47:54 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	parse_wildcard(t_printf *f, int i)
+static int		parse_wildcard(t_printf *f, int i)
 {
 	if (f->p == 1)
 		f->l = va_arg(f->ap, int);
@@ -25,7 +25,7 @@ static int	parse_wildcard(t_printf *f, int i)
 	return (i + 1);
 }
 
-static int	parse_parameters(t_printf *f, int i)
+static int		parse_parameters(t_printf *f, int i)
 {
 	while (f->fmt[i] == '-')
 	{
@@ -52,7 +52,7 @@ static int	parse_parameters(t_printf *f, int i)
 	return (i);
 }
 
-static void	parse(t_printf *f, int i)
+static void		parse(t_printf *f, int i)
 {
 	f->len = 0;
 	while (f->fmt[i])
@@ -72,7 +72,7 @@ static void	parse(t_printf *f, int i)
 	}
 }
 
-int	ft_printf(const char *fmt, ...)
+int				ft_printf(const char *fmt, ...)
 {
 	t_printf	f;
 	int			i;

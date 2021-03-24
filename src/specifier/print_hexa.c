@@ -6,7 +6,7 @@
 /*   By: bapmarti <bapmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 14:59:12 by bapmarti          #+#    #+#             */
-/*   Updated: 2021/02/28 20:42:01 by bapmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:48:24 by baptistem        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	print_hexa_string(char *s_hexa, unsigned int hexa, t_printf *f)
 	}
 }
 
-void	print_hexa(t_printf *f, unsigned int hexa)
+void		print_hexa(t_printf *f, unsigned int hexa)
 {
 	char	*str_hexa;
 

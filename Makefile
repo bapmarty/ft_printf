@@ -36,7 +36,7 @@ ES_ERASE	=	"\033[A\033[K\033[A"
 ERASE		=	$(ECHO) $(ES_ERASE)
 
 .c.o:
-	$(CC) $(CFLAGS) -I $(INCLUDE) -o $@ -c $< 
+	$(CC) $(CFLAGS) -I $(INCLUDE) -o $@ -c $<
 
 $(NAME): $(OBJS)
 		@make -C $(LIBFT)
@@ -54,16 +54,4 @@ fclean: clean
 
 re:		fclean all
 
-norm:
-	@norminette -d src
-	@norminette -d includes
-
-test:
-	@clear
-	@$(ECHO) "Compiling...\t[$(C_PENDING) ⌛︎ $(C_RESET)]"
-	@make
-	@gcc main.c -L. -lftprintf -I $(INCLUDE)
-	@$(ECHO) "Compiling...\t[$(C_SUCCESS) ✅ $(C_RESET)]"
-rmtest: clean
-	@$(RM) a.out
 .PHONY: all clean fclean re

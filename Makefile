@@ -1,39 +1,55 @@
-NAME		=	libftprintf.a
+NAME					=	libftprintf.a
 
-LIBFT		=	libft
+LIBFT					=	libft
 
-SRC_FOLDER	=	./src/
-SRC_FILES	=	ft_printf.c						\
-				init_flags.c					\
-				parse_zero.c					\
-				parse_wl.c						\
-				select_specifier.c				\
-				specifier/print_int.c			\
-				specifier/print_uint.c			\
-				specifier/print_hexa.c			\
-				specifier/print_char.c 			\
-				specifier/print_width.c			\
-				specifier/print_string.c 		\
-				specifier/print_pointer.c		\
+OS						=	MACOS
 
+SRC_FOLDER				=	./src/
+SRC_SPECIFIERS_MACOS	=	specifiers_macos/print_int.c			\
+							specifiers_macos/print_uint.c			\
+							specifiers_macos/print_hexa.c			\
+							specifiers_macos/print_char.c 			\
+							specifiers_macos/print_width.c			\
+							specifiers_macos/print_string.c 		\
+							specifiers_macos/print_pointer.c		\
+							
+SRC_SPECIFIERS_LINUX	=	specifiers_linux/print_int.c			\
+							specifiers_linux/print_uint.c			\
+							specifiers_linux/print_hexa.c			\
+							specifiers_linux/print_char.c 			\
+							specifiers_linux/print_width.c			\
+							specifiers_linux/print_string.c 		\
+							specifiers_linux/print_pointer.c		\
 
-OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))
-OBJS		:=	$(OBJS:.c=.o)
+SRC_FILES				=	ft_printf.c								\
+							init_flags.c							\
+							parse_zero.c							\
+							parse_wl.c								\
+							select_specifier.c
 
-INCLUDE		=	./includes/
+ifeq ($(OS), MACOS)
+OBJS					=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))			\
+							$(addprefix $(SRC_FOLDER), $(SRC_SPECIFIERS_MACOS))
+else
+OBJS					=	$(addprefix $(SRC_FOLDER), $(SRC_FILES))			\
+							$(addprefix $(SRC_FOLDER), $(SRC_SPECIFIERS_LINUX))
+endif
+OBJS					:=	$(OBJS:.c=.o)
 
-ECHO		=	echo
-CC			=	gcc
-RM			=	rm -rf
+INCLUDE					=	./includes/
 
-CFLAGS		=	-Wall -Wextra -Werror
+ECHO					=	echo
+CC						=	gcc
+RM						=	rm -rf
 
-C_RESET		=	\033[0m
-C_PENDING	=	\033[0;36m
-C_SUCCESS	=	\033[0;32m
+CFLAGS					=	-Wall -Wextra -Werror
 
-ES_ERASE	=	"\033[A\033[K\033[A"
-ERASE		=	$(ECHO) $(ES_ERASE)
+C_RESET					=	\033[0m
+C_PENDING				=	\033[0;36m
+C_SUCCESS				=	\033[0;32m
+
+ES_ERASE				=	"\033[A\033[K\033[A"
+ERASE					=	$(ECHO) $(ES_ERASE)
 
 .c.o:
 	$(CC) $(CFLAGS) -I $(INCLUDE) -o $@ -c $<

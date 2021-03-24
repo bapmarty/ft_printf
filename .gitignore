@@ -3,3 +3,4 @@
 **/*.out
 **/libftprintf.a
 **/libft.a
+main.c
